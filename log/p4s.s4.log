@@ -1,0 +1,661 @@
+Warning: you requested the nanomsg event logger, but bmv2 was compiled without -DBMELOG, and the event logger cannot be activated
+Calling target program-options parser
+[22:44:37.972] [bmv2] [D] [thread 3467] Set default default entry for table 'tbl_source_routing82': source_routing82 - 
+[22:44:37.972] [bmv2] [D] [thread 3467] Set default default entry for table 'tbl_source_routing67': source_routing67 - 
+[22:44:37.972] [bmv2] [D] [thread 3467] Set default default entry for table 'MyIngress.device_to_port': NoAction - 
+[22:44:37.972] [bmv2] [D] [thread 3467] Set default default entry for table 'tbl_act': act - 
+[22:44:37.972] [bmv2] [D] [thread 3467] Set default default entry for table 'tbl_act_0': act_0 - 
+[22:44:37.972] [bmv2] [D] [thread 3467] Set default default entry for table 'tbl_source_routing82_0': source_routing82_0 - 
+[22:44:37.973] [bmv2] [D] [thread 3467] Set default default entry for table 'tbl_set_normal_ethernet': MyIngress.set_normal_ethernet - 
+[22:44:37.973] [bmv2] [D] [thread 3467] Set default default entry for table 'tbl_source_routing87': source_routing87 - 
+[22:44:37.973] [bmv2] [D] [thread 3467] Set default default entry for table 'MyIngress.ipv4_lpm': NoAction - 
+[22:44:37.973] [bmv2] [D] [thread 3467] Set default default entry for table 'tbl_set_normal_ethernet_0': MyIngress.set_normal_ethernet - 
+[22:44:37.973] [bmv2] [D] [thread 3467] Set default default entry for table 'tbl_source_routing98': source_routing98 - 
+Adding interface s4-eth1 as port 1
+[22:44:37.981] [bmv2] [D] [thread 3467] Adding interface s4-eth1 as port 1
+Adding interface s4-eth2 as port 2
+[22:44:38.054] [bmv2] [D] [thread 3467] Adding interface s4-eth2 as port 2
+Adding interface s4-eth3 as port 3
+[22:44:38.117] [bmv2] [D] [thread 3467] Adding interface s4-eth3 as port 3
+[22:44:38.173] [bmv2] [I] [thread 3467] Starting Thrift server on port 9093
+[22:44:38.174] [bmv2] [I] [thread 3467] Thrift server was started
+[22:44:38.179] [bmv2] [D] [thread 3473] [0.0] [cxt 0] Processing packet received on port 1
+[22:44:38.179] [bmv2] [D] [thread 3473] [0.0] [cxt 0] Parser 'parser': start
+[22:44:38.179] [bmv2] [D] [thread 3473] [0.0] [cxt 0] Parser 'parser' entering state 'start'
+[22:44:38.179] [bmv2] [D] [thread 3473] [0.0] [cxt 0] Extracting header 'ethernet'
+[22:44:38.179] [bmv2] [D] [thread 3473] [0.0] [cxt 0] Parser state 'start': key is 86dd
+[22:44:38.179] [bmv2] [T] [thread 3473] [0.0] [cxt 0] Bytes parsed: 14
+[22:44:38.179] [bmv2] [D] [thread 3473] [0.0] [cxt 0] Parser 'parser': end
+[22:44:38.180] [bmv2] [D] [thread 3473] [0.0] [cxt 0] Pipeline 'ingress': start
+[22:44:38.180] [bmv2] [T] [thread 3473] [0.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Condition "hdr.source_routes[0].isValid()" (node_2) is true
+[22:44:38.180] [bmv2] [T] [thread 3473] [0.0] [cxt 0] Applying table 'tbl_source_routing82'
+[22:44:38.180] [bmv2] [D] [thread 3473] [0.0] [cxt 0] Looking up key:
+
+[22:44:38.180] [bmv2] [D] [thread 3473] [0.0] [cxt 0] Table 'tbl_source_routing82': miss
+[22:44:38.180] [bmv2] [D] [thread 3473] [0.0] [cxt 0] Action entry is source_routing82 - 
+[22:44:38.180] [bmv2] [T] [thread 3473] [0.0] [cxt 0] Action source_routing82
+[22:44:38.180] [bmv2] [T] [thread 3473] [0.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Primitive hdr.source_routes[0].isValid() && device_to_port.apply().hit
+[22:44:38.180] [bmv2] [T] [thread 3473] [0.0] [cxt 0] Condition "node_9" (node_9) is false
+[22:44:38.180] [bmv2] [T] [thread 3473] [0.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(90) Condition "hdr.ipv4.isValid()" (node_13) is false
+[22:44:38.180] [bmv2] [D] [thread 3473] [0.0] [cxt 0] Pipeline 'ingress': end
+[22:44:38.180] [bmv2] [D] [thread 3473] [0.0] [cxt 0] Egress port is 0
+[22:44:38.180] [bmv2] [D] [thread 3474] [0.0] [cxt 0] Pipeline 'egress': start
+[22:44:38.180] [bmv2] [D] [thread 3474] [0.0] [cxt 0] Pipeline 'egress': end
+[22:44:38.180] [bmv2] [D] [thread 3474] [0.0] [cxt 0] Deparser 'deparser': start
+[22:44:38.181] [bmv2] [T] [thread 3474] [0.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[22:44:38.181] [bmv2] [D] [thread 3474] [0.0] [cxt 0] Deparsing header 'ethernet'
+[22:44:38.181] [bmv2] [D] [thread 3474] [0.0] [cxt 0] Deparser 'deparser': end
+[22:44:38.181] [bmv2] [D] [thread 3478] [0.0] [cxt 0] Transmitting packet of size 90 out of port 0
+[22:44:38.185] [bmv2] [D] [thread 3473] [1.0] [cxt 0] Processing packet received on port 2
+[22:44:38.185] [bmv2] [D] [thread 3473] [1.0] [cxt 0] Parser 'parser': start
+[22:44:38.185] [bmv2] [D] [thread 3473] [1.0] [cxt 0] Parser 'parser' entering state 'start'
+[22:44:38.185] [bmv2] [D] [thread 3473] [1.0] [cxt 0] Extracting header 'ethernet'
+[22:44:38.185] [bmv2] [D] [thread 3473] [1.0] [cxt 0] Parser state 'start': key is 86dd
+[22:44:38.186] [bmv2] [T] [thread 3473] [1.0] [cxt 0] Bytes parsed: 14
+[22:44:38.186] [bmv2] [D] [thread 3473] [1.0] [cxt 0] Parser 'parser': end
+[22:44:38.186] [bmv2] [D] [thread 3473] [1.0] [cxt 0] Pipeline 'ingress': start
+[22:44:38.186] [bmv2] [T] [thread 3473] [1.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Condition "hdr.source_routes[0].isValid()" (node_2) is true
+[22:44:38.186] [bmv2] [T] [thread 3473] [1.0] [cxt 0] Applying table 'tbl_source_routing82'
+[22:44:38.186] [bmv2] [D] [thread 3473] [1.0] [cxt 0] Looking up key:
+
+[22:44:38.186] [bmv2] [D] [thread 3473] [1.0] [cxt 0] Table 'tbl_source_routing82': miss
+[22:44:38.186] [bmv2] [D] [thread 3473] [1.0] [cxt 0] Action entry is source_routing82 - 
+[22:44:38.186] [bmv2] [T] [thread 3473] [1.0] [cxt 0] Action source_routing82
+[22:44:38.186] [bmv2] [T] [thread 3473] [1.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Primitive hdr.source_routes[0].isValid() && device_to_port.apply().hit
+[22:44:38.186] [bmv2] [T] [thread 3473] [1.0] [cxt 0] Condition "node_9" (node_9) is false
+[22:44:38.186] [bmv2] [T] [thread 3473] [1.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(90) Condition "hdr.ipv4.isValid()" (node_13) is false
+[22:44:38.186] [bmv2] [D] [thread 3473] [1.0] [cxt 0] Pipeline 'ingress': end
+[22:44:38.186] [bmv2] [D] [thread 3473] [1.0] [cxt 0] Egress port is 0
+[22:44:38.186] [bmv2] [D] [thread 3474] [1.0] [cxt 0] Pipeline 'egress': start
+[22:44:38.186] [bmv2] [D] [thread 3474] [1.0] [cxt 0] Pipeline 'egress': end
+[22:44:38.186] [bmv2] [D] [thread 3474] [1.0] [cxt 0] Deparser 'deparser': start
+[22:44:38.186] [bmv2] [T] [thread 3474] [1.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[22:44:38.187] [bmv2] [D] [thread 3474] [1.0] [cxt 0] Deparsing header 'ethernet'
+[22:44:38.187] [bmv2] [D] [thread 3474] [1.0] [cxt 0] Deparser 'deparser': end
+[22:44:38.187] [bmv2] [D] [thread 3478] [1.0] [cxt 0] Transmitting packet of size 90 out of port 0
+[22:44:39.112] [bmv2] [T] [thread 3538] bm_get_config
+[22:44:39.119] [bmv2] [T] [thread 3538] bm_set_default_action
+[22:44:39.119] [bmv2] [D] [thread 3538] Set default entry for table 'MyIngress.ipv4_lpm': MyIngress.drop - 
+[22:44:39.121] [bmv2] [T] [thread 3538] bm_table_add_entry
+[22:44:39.121] [bmv2] [D] [thread 3538] Entry 0 added to table 'MyIngress.ipv4_lpm'
+[22:44:39.121] [bmv2] [D] [thread 3538] Dumping entry 0
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000101/32
+Action entry: MyIngress.ipv4_forward - 30400,1,
+
+[22:44:39.122] [bmv2] [T] [thread 3538] bm_table_add_entry
+[22:44:39.122] [bmv2] [D] [thread 3538] Entry 1 added to table 'MyIngress.ipv4_lpm'
+[22:44:39.122] [bmv2] [D] [thread 3538] Dumping entry 1
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000402/32
+Action entry: MyIngress.ipv4_forward - a000402,3,
+
+[22:44:39.123] [bmv2] [T] [thread 3538] bm_table_add_entry
+[22:44:39.123] [bmv2] [D] [thread 3538] Entry 0 added to table 'MyIngress.device_to_port'
+[22:44:39.123] [bmv2] [D] [thread 3538] Dumping entry 0
+Match key:
+* hdr.source_routes[0].switch_id: EXACT     02
+Action entry: MyIngress.ipv4_forward - 20400,1,
+
+[22:44:39.124] [bmv2] [T] [thread 3538] bm_table_add_entry
+[22:44:39.124] [bmv2] [D] [thread 3538] Entry 1 added to table 'MyIngress.device_to_port'
+[22:44:39.124] [bmv2] [D] [thread 3538] Dumping entry 1
+Match key:
+* hdr.source_routes[0].switch_id: EXACT     03
+Action entry: MyIngress.ipv4_forward - 30400,2,
+
+[22:47:49.293] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Processing packet received on port 1
+[22:47:49.293] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Parser 'parser': start
+[22:47:49.293] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Parser 'parser' entering state 'start'
+[22:47:49.293] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Extracting header 'ethernet'
+[22:47:49.293] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Parser state 'start': key is 1111
+[22:47:49.293] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Bytes parsed: 14
+[22:47:49.293] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Parser 'parser' entering state 'parse_source_routing'
+[22:47:49.293] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Extracting to header stack 0, next header is 4
+[22:47:49.293] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Parser state 'parse_source_routing': key is 01
+[22:47:49.293] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Bytes parsed: 15
+[22:47:49.293] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[22:47:49.293] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Extracting header 'ipv4'
+[22:47:49.293] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[22:47:49.293] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Bytes parsed: 35
+[22:47:49.293] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Parser 'parser': end
+[22:47:49.293] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Pipeline 'ingress': start
+[22:47:49.294] [bmv2] [T] [thread 3473] [2.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Condition "hdr.source_routes[0].isValid()" (node_2) is false
+[22:47:49.294] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Applying table 'tbl_source_routing67'
+[22:47:49.294] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Looking up key:
+
+[22:47:49.294] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Table 'tbl_source_routing67': miss
+[22:47:49.294] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Action entry is source_routing67 - 
+[22:47:49.294] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Action source_routing67
+[22:47:49.294] [bmv2] [T] [thread 3473] [2.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(67) Primitive hdr.source_routes[0].switch_id
+[22:47:49.294] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Applying table 'MyIngress.device_to_port'
+[22:47:49.294] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Looking up key:
+* hdr.source_routes[0].switch_id: 04
+
+[22:47:49.294] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Table 'MyIngress.device_to_port': miss
+[22:47:49.294] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Action entry is NoAction - 
+[22:47:49.294] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Action NoAction
+[22:47:49.294] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Applying table 'tbl_act_0'
+[22:47:49.294] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Looking up key:
+
+[22:47:49.294] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Table 'tbl_act_0': miss
+[22:47:49.294] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Action entry is act_0 - 
+[22:47:49.294] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Action act_0
+[22:47:49.294] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Primitive (no source info)
+[22:47:49.294] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Applying table 'tbl_source_routing82_0'
+[22:47:49.295] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Looking up key:
+
+[22:47:49.295] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Table 'tbl_source_routing82_0': miss
+[22:47:49.295] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Action entry is source_routing82_0 - 
+[22:47:49.295] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Action source_routing82_0
+[22:47:49.295] [bmv2] [T] [thread 3473] [2.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Primitive hdr.source_routes[0].isValid() && device_to_port.apply().hit
+[22:47:49.295] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Condition "node_9" (node_9) is false
+[22:47:49.295] [bmv2] [T] [thread 3473] [2.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(90) Condition "hdr.ipv4.isValid()" (node_13) is true
+[22:47:49.295] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[22:47:49.295] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 0a000402
+
+[22:47:49.295] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 1
+[22:47:49.295] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Dumping entry 1
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000402/32
+Action entry: MyIngress.ipv4_forward - a000402,3,
+
+[22:47:49.295] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Action entry is MyIngress.ipv4_forward - a000402,3,
+[22:47:49.295] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Action MyIngress.ipv4_forward
+[22:47:49.295] [bmv2] [T] [thread 3473] [2.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(38) Primitive hdr.ethernet.srcAddr = hdr.ethernet.dstAddr
+[22:47:49.295] [bmv2] [T] [thread 3473] [2.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(41) Primitive hdr.ethernet.dstAddr = dstAddr
+[22:47:49.295] [bmv2] [T] [thread 3473] [2.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(44) Primitive standard_metadata.egress_spec = port
+[22:47:49.295] [bmv2] [T] [thread 3473] [2.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(47) Primitive hdr.ipv4.ttl = hdr.ipv4.ttl - 1
+[22:47:49.295] [bmv2] [T] [thread 3473] [2.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(93) Condition "hdr.source_routes[0].isValid()" (node_15) is true
+[22:47:49.295] [bmv2] [T] [thread 3473] [2.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(95) Condition "hdr.source_routes[0].last_header == 1" (node_16) is true
+[22:47:49.295] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Applying table 'tbl_set_normal_ethernet_0'
+[22:47:49.295] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Looking up key:
+
+[22:47:49.296] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Table 'tbl_set_normal_ethernet_0': miss
+[22:47:49.296] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Action entry is MyIngress.set_normal_ethernet - 
+[22:47:49.296] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Action MyIngress.set_normal_ethernet
+[22:47:49.296] [bmv2] [T] [thread 3473] [2.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/include/headers.p4(7) Primitive 0x800; ...
+[22:47:49.296] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Applying table 'tbl_source_routing98'
+[22:47:49.296] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Looking up key:
+
+[22:47:49.296] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Table 'tbl_source_routing98': miss
+[22:47:49.296] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Action entry is source_routing98 - 
+[22:47:49.296] [bmv2] [T] [thread 3473] [2.0] [cxt 0] Action source_routing98
+[22:47:49.296] [bmv2] [T] [thread 3473] [2.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(98) Primitive hdr.source_routes.pop_front(1)
+[22:47:49.297] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Pipeline 'ingress': end
+[22:47:49.297] [bmv2] [D] [thread 3473] [2.0] [cxt 0] Egress port is 3
+[22:47:49.297] [bmv2] [D] [thread 3477] [2.0] [cxt 0] Pipeline 'egress': start
+[22:47:49.297] [bmv2] [D] [thread 3477] [2.0] [cxt 0] Pipeline 'egress': end
+[22:47:49.297] [bmv2] [D] [thread 3477] [2.0] [cxt 0] Deparser 'deparser': start
+[22:47:49.297] [bmv2] [D] [thread 3477] [2.0] [cxt 0] Updating checksum 'cksum'
+[22:47:49.297] [bmv2] [D] [thread 3477] [2.0] [cxt 0] Deparsing header 'ethernet'
+[22:47:49.297] [bmv2] [D] [thread 3477] [2.0] [cxt 0] Deparsing header 'ipv4'
+[22:47:49.297] [bmv2] [D] [thread 3477] [2.0] [cxt 0] Deparser 'deparser': end
+[22:47:49.297] [bmv2] [D] [thread 3478] [2.0] [cxt 0] Transmitting packet of size 42 out of port 3
+[22:47:49.298] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Processing packet received on port 3
+[22:47:49.298] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Parser 'parser': start
+[22:47:49.298] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Parser 'parser' entering state 'start'
+[22:47:49.298] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Extracting header 'ethernet'
+[22:47:49.298] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Parser state 'start': key is 0800
+[22:47:49.298] [bmv2] [T] [thread 3473] [3.0] [cxt 0] Bytes parsed: 14
+[22:47:49.298] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[22:47:49.299] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Extracting header 'ipv4'
+[22:47:49.299] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[22:47:49.299] [bmv2] [T] [thread 3473] [3.0] [cxt 0] Bytes parsed: 34
+[22:47:49.299] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Parser 'parser': end
+[22:47:49.299] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Pipeline 'ingress': start
+[22:47:49.299] [bmv2] [T] [thread 3473] [3.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Condition "hdr.source_routes[0].isValid()" (node_2) is true
+[22:47:49.299] [bmv2] [T] [thread 3473] [3.0] [cxt 0] Applying table 'tbl_source_routing82'
+[22:47:49.299] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Looking up key:
+
+[22:47:49.299] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Table 'tbl_source_routing82': miss
+[22:47:49.299] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Action entry is source_routing82 - 
+[22:47:49.299] [bmv2] [T] [thread 3473] [3.0] [cxt 0] Action source_routing82
+[22:47:49.299] [bmv2] [T] [thread 3473] [3.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Primitive hdr.source_routes[0].isValid() && device_to_port.apply().hit
+[22:47:49.299] [bmv2] [T] [thread 3473] [3.0] [cxt 0] Condition "node_9" (node_9) is false
+[22:47:49.299] [bmv2] [T] [thread 3473] [3.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(90) Condition "hdr.ipv4.isValid()" (node_13) is true
+[22:47:49.299] [bmv2] [T] [thread 3473] [3.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[22:47:49.299] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 0a000101
+
+[22:47:49.299] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 0
+[22:47:49.299] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000101/32
+Action entry: MyIngress.ipv4_forward - 30400,1,
+
+[22:47:49.299] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Action entry is MyIngress.ipv4_forward - 30400,1,
+[22:47:49.299] [bmv2] [T] [thread 3473] [3.0] [cxt 0] Action MyIngress.ipv4_forward
+[22:47:49.299] [bmv2] [T] [thread 3473] [3.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(38) Primitive hdr.ethernet.srcAddr = hdr.ethernet.dstAddr
+[22:47:49.299] [bmv2] [T] [thread 3473] [3.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(41) Primitive hdr.ethernet.dstAddr = dstAddr
+[22:47:49.299] [bmv2] [T] [thread 3473] [3.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(44) Primitive standard_metadata.egress_spec = port
+[22:47:49.299] [bmv2] [T] [thread 3473] [3.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(47) Primitive hdr.ipv4.ttl = hdr.ipv4.ttl - 1
+[22:47:49.300] [bmv2] [T] [thread 3473] [3.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(93) Condition "hdr.source_routes[0].isValid()" (node_15) is false
+[22:47:49.300] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Pipeline 'ingress': end
+[22:47:49.300] [bmv2] [D] [thread 3473] [3.0] [cxt 0] Egress port is 1
+[22:47:49.300] [bmv2] [D] [thread 3475] [3.0] [cxt 0] Pipeline 'egress': start
+[22:47:49.300] [bmv2] [D] [thread 3475] [3.0] [cxt 0] Pipeline 'egress': end
+[22:47:49.300] [bmv2] [D] [thread 3475] [3.0] [cxt 0] Deparser 'deparser': start
+[22:47:49.300] [bmv2] [D] [thread 3475] [3.0] [cxt 0] Updating checksum 'cksum'
+[22:47:49.300] [bmv2] [D] [thread 3475] [3.0] [cxt 0] Deparsing header 'ethernet'
+[22:47:49.300] [bmv2] [D] [thread 3475] [3.0] [cxt 0] Deparsing header 'ipv4'
+[22:47:49.300] [bmv2] [D] [thread 3475] [3.0] [cxt 0] Deparser 'deparser': end
+[22:47:49.300] [bmv2] [D] [thread 3478] [3.0] [cxt 0] Transmitting packet of size 70 out of port 1
+[22:48:06.763] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Processing packet received on port 1
+[22:48:06.763] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Parser 'parser': start
+[22:48:06.763] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Parser 'parser' entering state 'start'
+[22:48:06.763] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Extracting header 'ethernet'
+[22:48:06.763] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Parser state 'start': key is 0800
+[22:48:06.763] [bmv2] [T] [thread 3473] [4.0] [cxt 0] Bytes parsed: 14
+[22:48:06.764] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[22:48:06.764] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Extracting header 'ipv4'
+[22:48:06.764] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[22:48:06.764] [bmv2] [T] [thread 3473] [4.0] [cxt 0] Bytes parsed: 34
+[22:48:06.764] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Parser 'parser': end
+[22:48:06.764] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Pipeline 'ingress': start
+[22:48:06.764] [bmv2] [T] [thread 3473] [4.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Condition "hdr.source_routes[0].isValid()" (node_2) is true
+[22:48:06.764] [bmv2] [T] [thread 3473] [4.0] [cxt 0] Applying table 'tbl_source_routing82'
+[22:48:06.764] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Looking up key:
+
+[22:48:06.764] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Table 'tbl_source_routing82': miss
+[22:48:06.764] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Action entry is source_routing82 - 
+[22:48:06.764] [bmv2] [T] [thread 3473] [4.0] [cxt 0] Action source_routing82
+[22:48:06.764] [bmv2] [T] [thread 3473] [4.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Primitive hdr.source_routes[0].isValid() && device_to_port.apply().hit
+[22:48:06.764] [bmv2] [T] [thread 3473] [4.0] [cxt 0] Condition "node_9" (node_9) is false
+[22:48:06.764] [bmv2] [T] [thread 3473] [4.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(90) Condition "hdr.ipv4.isValid()" (node_13) is true
+[22:48:06.764] [bmv2] [T] [thread 3473] [4.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[22:48:06.764] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 0a000402
+
+[22:48:06.764] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 1
+[22:48:06.764] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Dumping entry 1
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000402/32
+Action entry: MyIngress.ipv4_forward - a000402,3,
+
+[22:48:06.764] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Action entry is MyIngress.ipv4_forward - a000402,3,
+[22:48:06.764] [bmv2] [T] [thread 3473] [4.0] [cxt 0] Action MyIngress.ipv4_forward
+[22:48:06.764] [bmv2] [T] [thread 3473] [4.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(38) Primitive hdr.ethernet.srcAddr = hdr.ethernet.dstAddr
+[22:48:06.764] [bmv2] [T] [thread 3473] [4.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(41) Primitive hdr.ethernet.dstAddr = dstAddr
+[22:48:06.764] [bmv2] [T] [thread 3473] [4.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(44) Primitive standard_metadata.egress_spec = port
+[22:48:06.765] [bmv2] [T] [thread 3473] [4.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(47) Primitive hdr.ipv4.ttl = hdr.ipv4.ttl - 1
+[22:48:06.765] [bmv2] [T] [thread 3473] [4.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(93) Condition "hdr.source_routes[0].isValid()" (node_15) is false
+[22:48:06.765] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Pipeline 'ingress': end
+[22:48:06.765] [bmv2] [D] [thread 3473] [4.0] [cxt 0] Egress port is 3
+[22:48:06.765] [bmv2] [D] [thread 3477] [4.0] [cxt 0] Pipeline 'egress': start
+[22:48:06.765] [bmv2] [D] [thread 3477] [4.0] [cxt 0] Pipeline 'egress': end
+[22:48:06.765] [bmv2] [D] [thread 3477] [4.0] [cxt 0] Deparser 'deparser': start
+[22:48:06.765] [bmv2] [D] [thread 3477] [4.0] [cxt 0] Updating checksum 'cksum'
+[22:48:06.765] [bmv2] [D] [thread 3477] [4.0] [cxt 0] Deparsing header 'ethernet'
+[22:48:06.765] [bmv2] [D] [thread 3477] [4.0] [cxt 0] Deparsing header 'ipv4'
+[22:48:06.765] [bmv2] [D] [thread 3477] [4.0] [cxt 0] Deparser 'deparser': end
+[22:48:06.765] [bmv2] [D] [thread 3478] [4.0] [cxt 0] Transmitting packet of size 42 out of port 3
+[22:48:06.766] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Processing packet received on port 3
+[22:48:06.766] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Parser 'parser': start
+[22:48:06.766] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Parser 'parser' entering state 'start'
+[22:48:06.766] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Extracting header 'ethernet'
+[22:48:06.766] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Parser state 'start': key is 0800
+[22:48:06.766] [bmv2] [T] [thread 3473] [5.0] [cxt 0] Bytes parsed: 14
+[22:48:06.766] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[22:48:06.766] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Extracting header 'ipv4'
+[22:48:06.766] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[22:48:06.766] [bmv2] [T] [thread 3473] [5.0] [cxt 0] Bytes parsed: 34
+[22:48:06.766] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Parser 'parser': end
+[22:48:06.766] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Pipeline 'ingress': start
+[22:48:06.766] [bmv2] [T] [thread 3473] [5.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Condition "hdr.source_routes[0].isValid()" (node_2) is true
+[22:48:06.767] [bmv2] [T] [thread 3473] [5.0] [cxt 0] Applying table 'tbl_source_routing82'
+[22:48:06.767] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Looking up key:
+
+[22:48:06.767] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Table 'tbl_source_routing82': miss
+[22:48:06.767] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Action entry is source_routing82 - 
+[22:48:06.767] [bmv2] [T] [thread 3473] [5.0] [cxt 0] Action source_routing82
+[22:48:06.767] [bmv2] [T] [thread 3473] [5.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Primitive hdr.source_routes[0].isValid() && device_to_port.apply().hit
+[22:48:06.767] [bmv2] [T] [thread 3473] [5.0] [cxt 0] Condition "node_9" (node_9) is false
+[22:48:06.767] [bmv2] [T] [thread 3473] [5.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(90) Condition "hdr.ipv4.isValid()" (node_13) is true
+[22:48:06.767] [bmv2] [T] [thread 3473] [5.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[22:48:06.767] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 0a000101
+
+[22:48:06.767] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 0
+[22:48:06.767] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000101/32
+Action entry: MyIngress.ipv4_forward - 30400,1,
+
+[22:48:06.767] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Action entry is MyIngress.ipv4_forward - 30400,1,
+[22:48:06.767] [bmv2] [T] [thread 3473] [5.0] [cxt 0] Action MyIngress.ipv4_forward
+[22:48:06.767] [bmv2] [T] [thread 3473] [5.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(38) Primitive hdr.ethernet.srcAddr = hdr.ethernet.dstAddr
+[22:48:06.767] [bmv2] [T] [thread 3473] [5.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(41) Primitive hdr.ethernet.dstAddr = dstAddr
+[22:48:06.767] [bmv2] [T] [thread 3473] [5.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(44) Primitive standard_metadata.egress_spec = port
+[22:48:06.767] [bmv2] [T] [thread 3473] [5.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(47) Primitive hdr.ipv4.ttl = hdr.ipv4.ttl - 1
+[22:48:06.767] [bmv2] [T] [thread 3473] [5.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(93) Condition "hdr.source_routes[0].isValid()" (node_15) is false
+[22:48:06.767] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Pipeline 'ingress': end
+[22:48:06.767] [bmv2] [D] [thread 3473] [5.0] [cxt 0] Egress port is 1
+[22:48:06.768] [bmv2] [D] [thread 3475] [5.0] [cxt 0] Pipeline 'egress': start
+[22:48:06.768] [bmv2] [D] [thread 3475] [5.0] [cxt 0] Pipeline 'egress': end
+[22:48:06.768] [bmv2] [D] [thread 3475] [5.0] [cxt 0] Deparser 'deparser': start
+[22:48:06.768] [bmv2] [D] [thread 3475] [5.0] [cxt 0] Updating checksum 'cksum'
+[22:48:06.768] [bmv2] [D] [thread 3475] [5.0] [cxt 0] Deparsing header 'ethernet'
+[22:48:06.768] [bmv2] [D] [thread 3475] [5.0] [cxt 0] Deparsing header 'ipv4'
+[22:48:06.768] [bmv2] [D] [thread 3475] [5.0] [cxt 0] Deparser 'deparser': end
+[22:48:06.768] [bmv2] [D] [thread 3478] [5.0] [cxt 0] Transmitting packet of size 70 out of port 1
+[22:48:08.720] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Processing packet received on port 1
+[22:48:08.720] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Parser 'parser': start
+[22:48:08.720] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Parser 'parser' entering state 'start'
+[22:48:08.720] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Extracting header 'ethernet'
+[22:48:08.720] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Parser state 'start': key is 0800
+[22:48:08.720] [bmv2] [T] [thread 3473] [6.0] [cxt 0] Bytes parsed: 14
+[22:48:08.720] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[22:48:08.720] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Extracting header 'ipv4'
+[22:48:08.720] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[22:48:08.720] [bmv2] [T] [thread 3473] [6.0] [cxt 0] Bytes parsed: 34
+[22:48:08.720] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Parser 'parser': end
+[22:48:08.720] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Pipeline 'ingress': start
+[22:48:08.720] [bmv2] [T] [thread 3473] [6.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Condition "hdr.source_routes[0].isValid()" (node_2) is true
+[22:48:08.720] [bmv2] [T] [thread 3473] [6.0] [cxt 0] Applying table 'tbl_source_routing82'
+[22:48:08.720] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Looking up key:
+
+[22:48:08.721] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Table 'tbl_source_routing82': miss
+[22:48:08.721] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Action entry is source_routing82 - 
+[22:48:08.721] [bmv2] [T] [thread 3473] [6.0] [cxt 0] Action source_routing82
+[22:48:08.721] [bmv2] [T] [thread 3473] [6.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Primitive hdr.source_routes[0].isValid() && device_to_port.apply().hit
+[22:48:08.721] [bmv2] [T] [thread 3473] [6.0] [cxt 0] Condition "node_9" (node_9) is false
+[22:48:08.721] [bmv2] [T] [thread 3473] [6.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(90) Condition "hdr.ipv4.isValid()" (node_13) is true
+[22:48:08.721] [bmv2] [T] [thread 3473] [6.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[22:48:08.721] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 0a000402
+
+[22:48:08.721] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 1
+[22:48:08.721] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Dumping entry 1
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000402/32
+Action entry: MyIngress.ipv4_forward - a000402,3,
+
+[22:48:08.721] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Action entry is MyIngress.ipv4_forward - a000402,3,
+[22:48:08.721] [bmv2] [T] [thread 3473] [6.0] [cxt 0] Action MyIngress.ipv4_forward
+[22:48:08.721] [bmv2] [T] [thread 3473] [6.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(38) Primitive hdr.ethernet.srcAddr = hdr.ethernet.dstAddr
+[22:48:08.721] [bmv2] [T] [thread 3473] [6.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(41) Primitive hdr.ethernet.dstAddr = dstAddr
+[22:48:08.721] [bmv2] [T] [thread 3473] [6.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(44) Primitive standard_metadata.egress_spec = port
+[22:48:08.721] [bmv2] [T] [thread 3473] [6.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(47) Primitive hdr.ipv4.ttl = hdr.ipv4.ttl - 1
+[22:48:08.721] [bmv2] [T] [thread 3473] [6.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(93) Condition "hdr.source_routes[0].isValid()" (node_15) is false
+[22:48:08.721] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Pipeline 'ingress': end
+[22:48:08.721] [bmv2] [D] [thread 3473] [6.0] [cxt 0] Egress port is 3
+[22:48:08.722] [bmv2] [D] [thread 3477] [6.0] [cxt 0] Pipeline 'egress': start
+[22:48:08.722] [bmv2] [D] [thread 3477] [6.0] [cxt 0] Pipeline 'egress': end
+[22:48:08.722] [bmv2] [D] [thread 3477] [6.0] [cxt 0] Deparser 'deparser': start
+[22:48:08.722] [bmv2] [D] [thread 3477] [6.0] [cxt 0] Updating checksum 'cksum'
+[22:48:08.722] [bmv2] [D] [thread 3477] [6.0] [cxt 0] Deparsing header 'ethernet'
+[22:48:08.722] [bmv2] [D] [thread 3477] [6.0] [cxt 0] Deparsing header 'ipv4'
+[22:48:08.722] [bmv2] [D] [thread 3477] [6.0] [cxt 0] Deparser 'deparser': end
+[22:48:08.722] [bmv2] [D] [thread 3478] [6.0] [cxt 0] Transmitting packet of size 42 out of port 3
+[22:48:08.722] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Processing packet received on port 3
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Parser 'parser': start
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Parser 'parser' entering state 'start'
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Extracting header 'ethernet'
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Parser state 'start': key is 0800
+[22:48:08.723] [bmv2] [T] [thread 3473] [7.0] [cxt 0] Bytes parsed: 14
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Extracting header 'ipv4'
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[22:48:08.723] [bmv2] [T] [thread 3473] [7.0] [cxt 0] Bytes parsed: 34
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Parser 'parser': end
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Pipeline 'ingress': start
+[22:48:08.723] [bmv2] [T] [thread 3473] [7.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Condition "hdr.source_routes[0].isValid()" (node_2) is true
+[22:48:08.723] [bmv2] [T] [thread 3473] [7.0] [cxt 0] Applying table 'tbl_source_routing82'
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Looking up key:
+
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Table 'tbl_source_routing82': miss
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Action entry is source_routing82 - 
+[22:48:08.723] [bmv2] [T] [thread 3473] [7.0] [cxt 0] Action source_routing82
+[22:48:08.723] [bmv2] [T] [thread 3473] [7.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Primitive hdr.source_routes[0].isValid() && device_to_port.apply().hit
+[22:48:08.723] [bmv2] [T] [thread 3473] [7.0] [cxt 0] Condition "node_9" (node_9) is false
+[22:48:08.723] [bmv2] [T] [thread 3473] [7.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(90) Condition "hdr.ipv4.isValid()" (node_13) is true
+[22:48:08.723] [bmv2] [T] [thread 3473] [7.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 0a000101
+
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 0
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000101/32
+Action entry: MyIngress.ipv4_forward - 30400,1,
+
+[22:48:08.723] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Action entry is MyIngress.ipv4_forward - 30400,1,
+[22:48:08.724] [bmv2] [T] [thread 3473] [7.0] [cxt 0] Action MyIngress.ipv4_forward
+[22:48:08.724] [bmv2] [T] [thread 3473] [7.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(38) Primitive hdr.ethernet.srcAddr = hdr.ethernet.dstAddr
+[22:48:08.724] [bmv2] [T] [thread 3473] [7.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(41) Primitive hdr.ethernet.dstAddr = dstAddr
+[22:48:08.724] [bmv2] [T] [thread 3473] [7.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(44) Primitive standard_metadata.egress_spec = port
+[22:48:08.724] [bmv2] [T] [thread 3473] [7.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(47) Primitive hdr.ipv4.ttl = hdr.ipv4.ttl - 1
+[22:48:08.724] [bmv2] [T] [thread 3473] [7.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(93) Condition "hdr.source_routes[0].isValid()" (node_15) is false
+[22:48:08.724] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Pipeline 'ingress': end
+[22:48:08.724] [bmv2] [D] [thread 3473] [7.0] [cxt 0] Egress port is 1
+[22:48:08.724] [bmv2] [D] [thread 3475] [7.0] [cxt 0] Pipeline 'egress': start
+[22:48:08.724] [bmv2] [D] [thread 3475] [7.0] [cxt 0] Pipeline 'egress': end
+[22:48:08.724] [bmv2] [D] [thread 3475] [7.0] [cxt 0] Deparser 'deparser': start
+[22:48:08.724] [bmv2] [D] [thread 3475] [7.0] [cxt 0] Updating checksum 'cksum'
+[22:48:08.724] [bmv2] [D] [thread 3475] [7.0] [cxt 0] Deparsing header 'ethernet'
+[22:48:08.724] [bmv2] [D] [thread 3475] [7.0] [cxt 0] Deparsing header 'ipv4'
+[22:48:08.724] [bmv2] [D] [thread 3475] [7.0] [cxt 0] Deparser 'deparser': end
+[22:48:08.724] [bmv2] [D] [thread 3478] [7.0] [cxt 0] Transmitting packet of size 70 out of port 1
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Processing packet received on port 1
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Parser 'parser': start
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Parser 'parser' entering state 'start'
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Extracting header 'ethernet'
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Parser state 'start': key is 1111
+[22:48:22.466] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Bytes parsed: 14
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Parser 'parser' entering state 'parse_source_routing'
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Extracting to header stack 0, next header is 4
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Parser state 'parse_source_routing': key is 00
+[22:48:22.466] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Bytes parsed: 15
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Parser 'parser' entering state 'parse_source_routing'
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Extracting to header stack 0, next header is 5
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Parser state 'parse_source_routing': key is 00
+[22:48:22.466] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Bytes parsed: 16
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Parser 'parser' entering state 'parse_source_routing'
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Extracting to header stack 0, next header is 6
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Parser state 'parse_source_routing': key is 01
+[22:48:22.466] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Bytes parsed: 17
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Extracting header 'ipv4'
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[22:48:22.466] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Bytes parsed: 37
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Parser 'parser': end
+[22:48:22.466] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Pipeline 'ingress': start
+[22:48:22.467] [bmv2] [T] [thread 3473] [8.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Condition "hdr.source_routes[0].isValid()" (node_2) is false
+[22:48:22.467] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Applying table 'tbl_source_routing67'
+[22:48:22.467] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Looking up key:
+
+[22:48:22.467] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Table 'tbl_source_routing67': miss
+[22:48:22.467] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Action entry is source_routing67 - 
+[22:48:22.467] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Action source_routing67
+[22:48:22.467] [bmv2] [T] [thread 3473] [8.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(67) Primitive hdr.source_routes[0].switch_id
+[22:48:22.467] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Applying table 'MyIngress.device_to_port'
+[22:48:22.467] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Looking up key:
+* hdr.source_routes[0].switch_id: 02
+
+[22:48:22.467] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Table 'MyIngress.device_to_port': hit with handle 0
+[22:48:22.467] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.source_routes[0].switch_id: EXACT     02
+Action entry: MyIngress.ipv4_forward - 20400,1,
+
+[22:48:22.467] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Action entry is MyIngress.ipv4_forward - 20400,1,
+[22:48:22.467] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Action MyIngress.ipv4_forward
+[22:48:22.467] [bmv2] [T] [thread 3473] [8.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(38) Primitive hdr.ethernet.srcAddr = hdr.ethernet.dstAddr
+[22:48:22.467] [bmv2] [T] [thread 3473] [8.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(41) Primitive hdr.ethernet.dstAddr = dstAddr
+[22:48:22.467] [bmv2] [T] [thread 3473] [8.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(44) Primitive standard_metadata.egress_spec = port
+[22:48:22.467] [bmv2] [T] [thread 3473] [8.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(47) Primitive hdr.ipv4.ttl = hdr.ipv4.ttl - 1
+[22:48:22.467] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Applying table 'tbl_act'
+[22:48:22.467] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Looking up key:
+
+[22:48:22.467] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Table 'tbl_act': miss
+[22:48:22.467] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Action entry is act - 
+[22:48:22.467] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Action act
+[22:48:22.468] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Primitive (no source info)
+[22:48:22.468] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Applying table 'tbl_source_routing82_0'
+[22:48:22.468] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Looking up key:
+
+[22:48:22.468] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Table 'tbl_source_routing82_0': miss
+[22:48:22.468] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Action entry is source_routing82_0 - 
+[22:48:22.468] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Action source_routing82_0
+[22:48:22.468] [bmv2] [T] [thread 3473] [8.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Primitive hdr.source_routes[0].isValid() && device_to_port.apply().hit
+[22:48:22.468] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Condition "node_9" (node_9) is true
+[22:48:22.468] [bmv2] [T] [thread 3473] [8.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(84) Condition "hdr.source_routes[0].last_header == 1" (node_10) is false
+[22:48:22.468] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Applying table 'tbl_source_routing87'
+[22:48:22.468] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Looking up key:
+
+[22:48:22.468] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Table 'tbl_source_routing87': miss
+[22:48:22.468] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Action entry is source_routing87 - 
+[22:48:22.468] [bmv2] [T] [thread 3473] [8.0] [cxt 0] Action source_routing87
+[22:48:22.468] [bmv2] [T] [thread 3473] [8.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(87) Primitive hdr.source_routes.pop_front(1)
+[22:48:22.469] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Pipeline 'ingress': end
+[22:48:22.469] [bmv2] [D] [thread 3473] [8.0] [cxt 0] Egress port is 1
+[22:48:22.469] [bmv2] [D] [thread 3475] [8.0] [cxt 0] Pipeline 'egress': start
+[22:48:22.469] [bmv2] [D] [thread 3475] [8.0] [cxt 0] Pipeline 'egress': end
+[22:48:22.469] [bmv2] [D] [thread 3475] [8.0] [cxt 0] Deparser 'deparser': start
+[22:48:22.469] [bmv2] [D] [thread 3475] [8.0] [cxt 0] Updating checksum 'cksum'
+[22:48:22.469] [bmv2] [D] [thread 3475] [8.0] [cxt 0] Deparsing header 'ethernet'
+[22:48:22.469] [bmv2] [D] [thread 3475] [8.0] [cxt 0] Deparsing header 'source_routes[0]'
+[22:48:22.469] [bmv2] [D] [thread 3475] [8.0] [cxt 0] Deparsing header 'source_routes[1]'
+[22:48:22.469] [bmv2] [D] [thread 3475] [8.0] [cxt 0] Deparsing header 'ipv4'
+[22:48:22.469] [bmv2] [D] [thread 3475] [8.0] [cxt 0] Deparser 'deparser': end
+[22:48:22.469] [bmv2] [D] [thread 3478] [8.0] [cxt 0] Transmitting packet of size 44 out of port 1
+[22:48:22.474] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Processing packet received on port 1
+[22:48:22.474] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Parser 'parser': start
+[22:48:22.474] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Parser 'parser' entering state 'start'
+[22:48:22.474] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Extracting header 'ethernet'
+[22:48:22.474] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Parser state 'start': key is 1111
+[22:48:22.474] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Bytes parsed: 14
+[22:48:22.474] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Parser 'parser' entering state 'parse_source_routing'
+[22:48:22.474] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Extracting to header stack 0, next header is 4
+[22:48:22.474] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Parser state 'parse_source_routing': key is 01
+[22:48:22.474] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Bytes parsed: 15
+[22:48:22.474] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[22:48:22.474] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Extracting header 'ipv4'
+[22:48:22.474] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[22:48:22.475] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Bytes parsed: 35
+[22:48:22.475] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Parser 'parser': end
+[22:48:22.475] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Pipeline 'ingress': start
+[22:48:22.475] [bmv2] [T] [thread 3473] [9.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Condition "hdr.source_routes[0].isValid()" (node_2) is false
+[22:48:22.475] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Applying table 'tbl_source_routing67'
+[22:48:22.475] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Looking up key:
+
+[22:48:22.475] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Table 'tbl_source_routing67': miss
+[22:48:22.475] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Action entry is source_routing67 - 
+[22:48:22.475] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Action source_routing67
+[22:48:22.475] [bmv2] [T] [thread 3473] [9.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(67) Primitive hdr.source_routes[0].switch_id
+[22:48:22.475] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Applying table 'MyIngress.device_to_port'
+[22:48:22.475] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Looking up key:
+* hdr.source_routes[0].switch_id: 01
+
+[22:48:22.475] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Table 'MyIngress.device_to_port': miss
+[22:48:22.475] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Action entry is NoAction - 
+[22:48:22.475] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Action NoAction
+[22:48:22.475] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Applying table 'tbl_act_0'
+[22:48:22.475] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Looking up key:
+
+[22:48:22.475] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Table 'tbl_act_0': miss
+[22:48:22.475] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Action entry is act_0 - 
+[22:48:22.475] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Action act_0
+[22:48:22.475] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Primitive (no source info)
+[22:48:22.475] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Applying table 'tbl_source_routing82_0'
+[22:48:22.475] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Looking up key:
+
+[22:48:22.475] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Table 'tbl_source_routing82_0': miss
+[22:48:22.475] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Action entry is source_routing82_0 - 
+[22:48:22.475] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Action source_routing82_0
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Primitive hdr.source_routes[0].isValid() && device_to_port.apply().hit
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Condition "node_9" (node_9) is false
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(90) Condition "hdr.ipv4.isValid()" (node_13) is true
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[22:48:22.476] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 0a000402
+
+[22:48:22.476] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 1
+[22:48:22.476] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Dumping entry 1
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000402/32
+Action entry: MyIngress.ipv4_forward - a000402,3,
+
+[22:48:22.476] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Action entry is MyIngress.ipv4_forward - a000402,3,
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Action MyIngress.ipv4_forward
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(38) Primitive hdr.ethernet.srcAddr = hdr.ethernet.dstAddr
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(41) Primitive hdr.ethernet.dstAddr = dstAddr
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(44) Primitive standard_metadata.egress_spec = port
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(47) Primitive hdr.ipv4.ttl = hdr.ipv4.ttl - 1
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(93) Condition "hdr.source_routes[0].isValid()" (node_15) is true
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(95) Condition "hdr.source_routes[0].last_header == 1" (node_16) is true
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Applying table 'tbl_set_normal_ethernet_0'
+[22:48:22.476] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Looking up key:
+
+[22:48:22.476] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Table 'tbl_set_normal_ethernet_0': miss
+[22:48:22.476] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Action entry is MyIngress.set_normal_ethernet - 
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Action MyIngress.set_normal_ethernet
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/include/headers.p4(7) Primitive 0x800; ...
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Applying table 'tbl_source_routing98'
+[22:48:22.476] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Looking up key:
+
+[22:48:22.476] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Table 'tbl_source_routing98': miss
+[22:48:22.476] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Action entry is source_routing98 - 
+[22:48:22.476] [bmv2] [T] [thread 3473] [9.0] [cxt 0] Action source_routing98
+[22:48:22.477] [bmv2] [T] [thread 3473] [9.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(98) Primitive hdr.source_routes.pop_front(1)
+[22:48:22.477] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Pipeline 'ingress': end
+[22:48:22.477] [bmv2] [D] [thread 3473] [9.0] [cxt 0] Egress port is 3
+[22:48:22.477] [bmv2] [D] [thread 3477] [9.0] [cxt 0] Pipeline 'egress': start
+[22:48:22.477] [bmv2] [D] [thread 3477] [9.0] [cxt 0] Pipeline 'egress': end
+[22:48:22.477] [bmv2] [D] [thread 3477] [9.0] [cxt 0] Deparser 'deparser': start
+[22:48:22.477] [bmv2] [D] [thread 3477] [9.0] [cxt 0] Updating checksum 'cksum'
+[22:48:22.478] [bmv2] [D] [thread 3477] [9.0] [cxt 0] Deparsing header 'ethernet'
+[22:48:22.478] [bmv2] [D] [thread 3477] [9.0] [cxt 0] Deparsing header 'ipv4'
+[22:48:22.478] [bmv2] [D] [thread 3477] [9.0] [cxt 0] Deparser 'deparser': end
+[22:48:22.478] [bmv2] [D] [thread 3478] [9.0] [cxt 0] Transmitting packet of size 42 out of port 3
+[22:48:22.478] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Processing packet received on port 3
+[22:48:22.478] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Parser 'parser': start
+[22:48:22.478] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Parser 'parser' entering state 'start'
+[22:48:22.478] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Extracting header 'ethernet'
+[22:48:22.478] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Parser state 'start': key is 0800
+[22:48:22.478] [bmv2] [T] [thread 3473] [10.0] [cxt 0] Bytes parsed: 14
+[22:48:22.478] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[22:48:22.478] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Extracting header 'ipv4'
+[22:48:22.479] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[22:48:22.479] [bmv2] [T] [thread 3473] [10.0] [cxt 0] Bytes parsed: 34
+[22:48:22.479] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Parser 'parser': end
+[22:48:22.479] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Pipeline 'ingress': start
+[22:48:22.479] [bmv2] [T] [thread 3473] [10.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Condition "hdr.source_routes[0].isValid()" (node_2) is true
+[22:48:22.479] [bmv2] [T] [thread 3473] [10.0] [cxt 0] Applying table 'tbl_source_routing82'
+[22:48:22.479] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Looking up key:
+
+[22:48:22.479] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Table 'tbl_source_routing82': miss
+[22:48:22.479] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Action entry is source_routing82 - 
+[22:48:22.479] [bmv2] [T] [thread 3473] [10.0] [cxt 0] Action source_routing82
+[22:48:22.479] [bmv2] [T] [thread 3473] [10.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(82) Primitive hdr.source_routes[0].isValid() && device_to_port.apply().hit
+[22:48:22.479] [bmv2] [T] [thread 3473] [10.0] [cxt 0] Condition "node_9" (node_9) is false
+[22:48:22.479] [bmv2] [T] [thread 3473] [10.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(90) Condition "hdr.ipv4.isValid()" (node_13) is true
+[22:48:22.479] [bmv2] [T] [thread 3473] [10.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[22:48:22.479] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : 0a000101
+
+[22:48:22.479] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 0
+[22:48:22.479] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.ipv4.dstAddr    : LPM       0a000101/32
+Action entry: MyIngress.ipv4_forward - 30400,1,
+
+[22:48:22.479] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Action entry is MyIngress.ipv4_forward - 30400,1,
+[22:48:22.479] [bmv2] [T] [thread 3473] [10.0] [cxt 0] Action MyIngress.ipv4_forward
+[22:48:22.479] [bmv2] [T] [thread 3473] [10.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(38) Primitive hdr.ethernet.srcAddr = hdr.ethernet.dstAddr
+[22:48:22.479] [bmv2] [T] [thread 3473] [10.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(41) Primitive hdr.ethernet.dstAddr = dstAddr
+[22:48:22.479] [bmv2] [T] [thread 3473] [10.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(44) Primitive standard_metadata.egress_spec = port
+[22:48:22.479] [bmv2] [T] [thread 3473] [10.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(47) Primitive hdr.ipv4.ttl = hdr.ipv4.ttl - 1
+[22:48:22.479] [bmv2] [T] [thread 3473] [10.0] [cxt 0] /home/ubuntu/int/source-routing-INT/p4src/source_routing.p4(93) Condition "hdr.source_routes[0].isValid()" (node_15) is false
+[22:48:22.479] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Pipeline 'ingress': end
+[22:48:22.480] [bmv2] [D] [thread 3473] [10.0] [cxt 0] Egress port is 1
+[22:48:22.480] [bmv2] [D] [thread 3475] [10.0] [cxt 0] Pipeline 'egress': start
+[22:48:22.480] [bmv2] [D] [thread 3475] [10.0] [cxt 0] Pipeline 'egress': end
+[22:48:22.480] [bmv2] [D] [thread 3475] [10.0] [cxt 0] Deparser 'deparser': start
+[22:48:22.480] [bmv2] [D] [thread 3475] [10.0] [cxt 0] Updating checksum 'cksum'
+[22:48:22.480] [bmv2] [D] [thread 3475] [10.0] [cxt 0] Deparsing header 'ethernet'
+[22:48:22.480] [bmv2] [D] [thread 3475] [10.0] [cxt 0] Deparsing header 'ipv4'
+[22:48:22.480] [bmv2] [D] [thread 3475] [10.0] [cxt 0] Deparser 'deparser': end
+[22:48:22.480] [bmv2] [D] [thread 3478] [10.0] [cxt 0] Transmitting packet of size 70 out of port 1
