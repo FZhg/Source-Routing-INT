@@ -1,7 +1,7 @@
-# 1 "/home/ubuntu/int/source-routing-INT/p4src/source_routing.p4"
+# 1 "/home/ubuntu/int/source-routing-INT/p4src/source_routing_int.p4"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "/home/ubuntu/int/source-routing-INT/p4src/source_routing.p4"
+# 1 "/home/ubuntu/int/source-routing-INT/p4src/source_routing_int.p4"
 /* -*- P4_16 -*- */
 # 1 "/usr/local/share/p4c/p4include/core.p4" 1
 /*
@@ -86,7 +86,7 @@ match_kind {
     /// Longest-prefix match.
     lpm
 }
-# 3 "/home/ubuntu/int/source-routing-INT/p4src/source_routing.p4" 2
+# 3 "/home/ubuntu/int/source-routing-INT/p4src/source_routing_int.p4" 2
 # 1 "/usr/local/share/p4c/p4include/v1model.p4" 1
 /*
 Copyright 2013-present Barefoot Networks, Inc.
@@ -865,7 +865,7 @@ package V1Switch<H, M>(Parser<H, M> p,
                        ComputeChecksum<H, M> ck,
                        Deparser<H> dep
                        );
-# 4 "/home/ubuntu/int/source-routing-INT/p4src/source_routing.p4" 2
+# 4 "/home/ubuntu/int/source-routing-INT/p4src/source_routing_int.p4" 2
 
 //My includes
 # 1 "/home/ubuntu/int/source-routing-INT/p4src/include/headers.p4" 1
@@ -875,12 +875,20 @@ package V1Switch<H, M>(Parser<H, M> p,
 
 
 
+
 const bit<16> TYPE_IPV4 = 0x800;
 const bit<16> TYPE_SOURCE_ROUTING = 0x1111;
+const bit<5> IPV4_OPTION_INT = 31;
 
 typedef bit<9> egressSpec_t;
 typedef bit<48> macAddr_t;
 typedef bit<32> ip4Addr_t;
+
+typedef bit<13> switch_id_t;
+typedef bit<13> queue_depth_t;
+typedef bit<32> queue_time_t;
+typedef bit<6> output_port_t;
+
 
 
 header ethernet_t {
@@ -910,16 +918,46 @@ header ipv4_t {
     ip4Addr_t dstAddr;
 }
 
+header ipv4_option_t {
+    bit<1> copyFlag;
+    bit<2> optClass;
+    bit<5> option;
+    bit<8> optionLength;
+}
+
+
+
+header int_count_t {
+    bit<16> num_switches;
+}
+
+header int_header_t {
+    switch_id_t switch_id;
+    queue_depth_t queue_depth;
+    queue_time_t queue_time;
+    output_port_t output_port;
+}
+
+
+struct parser_metadata_t {
+    bit<16> num_headers_remaining;
+}
+
 struct metadata {
-    /* empty */
+    parser_metadata_t parser_metadata;
 }
 
 struct headers {
     ethernet_t ethernet;
-    source_routing_t[127] source_routes;
+    source_routing_t[9] source_routes;
     ipv4_t ipv4;
+    ipv4_option_t ipv4_option;
+    int_count_t int_count;
+    int_header_t[9] int_headers;
 }
-# 7 "/home/ubuntu/int/source-routing-INT/p4src/source_routing.p4" 2
+
+error { IPHeaderWithoutOptions }
+# 7 "/home/ubuntu/int/source-routing-INT/p4src/source_routing_int.p4" 2
 # 1 "/home/ubuntu/int/source-routing-INT/p4src/include/parsers.p4" 1
 /*************************************************************************
 *********************** P A R S E R  *******************************
@@ -956,8 +994,43 @@ parser MyParser(packet_in packet,
 
     state parse_ipv4 {
         packet.extract(hdr.ipv4);
-        transition accept;
+        //Check if ihl is bigger than 5. Packets without ip options set ihl to 5.
+        verify(hdr.ipv4.ihl >= 5, error.IPHeaderWithoutOptions);
+        transition select(hdr.ipv4.ihl) {
+            5 : accept; // Not a INT probe
+            default : parse_ipv4_option;
+        }
     }
+
+        state parse_ipv4_option {
+        packet.extract(hdr.ipv4_option);
+        transition select(hdr.ipv4_option.option){
+
+            IPV4_OPTION_INT: parse_int;
+            default: accept;
+
+        }
+     }
+
+    state parse_int {
+        packet.extract(hdr.int_count);
+        meta.parser_metadata.num_headers_remaining = hdr.int_count.num_switches;
+        transition select(meta.parser_metadata.num_headers_remaining){
+            0: accept;
+            default: parse_int_headers;
+        }
+    }
+
+    state parse_int_headers {
+        packet.extract(hdr.int_headers.next);
+        meta.parser_metadata.num_headers_remaining = meta.parser_metadata.num_headers_remaining -1 ;
+        transition select(meta.parser_metadata.num_headers_remaining){
+            0: accept;
+            default: parse_int_headers;
+        }
+    }
+
+
 }
 
 /*************************************************************************
@@ -971,10 +1044,13 @@ control MyDeparser(packet_out packet, in headers hdr) {
         packet.emit(hdr.ethernet);
         packet.emit(hdr.source_routes);
         packet.emit(hdr.ipv4);
+        packet.emit(hdr.ipv4_option);
+        packet.emit(hdr.int_count);
+        packet.emit(hdr.int_headers);
 
     }
 }
-# 8 "/home/ubuntu/int/source-routing-INT/p4src/source_routing.p4" 2
+# 8 "/home/ubuntu/int/source-routing-INT/p4src/source_routing_int.p4" 2
 
 
 /*************************************************************************
@@ -1080,8 +1156,40 @@ control MyEgress(inout headers hdr,
                  inout metadata meta,
                  inout standard_metadata_t standard_metadata) {
 
-    apply {}
 
+    action add_int_header(switch_id_t swid){
+
+        //increase int stack counter by one
+        hdr.int_count.num_switches = hdr.int_count.num_switches + 1;
+
+        hdr.int_headers.push_front(1);
+        // This was not needed in older specs. Now by default pushed
+        // invalid elements are
+        hdr.int_headers[0].setValid();
+        hdr.int_headers[0].switch_id = (bit<13>)swid;
+        hdr.int_headers[0].queue_depth = (bit<13>)standard_metadata.deq_qdepth;
+        hdr.int_headers[0].queue_time = (bit<32>)standard_metadata.deq_timedelta;
+        hdr.int_headers[0].output_port = (bit<6>)standard_metadata.egress_port;
+
+        //update ip header length
+        hdr.ipv4.ihl = hdr.ipv4.ihl + 2;
+        hdr.ipv4.totalLen = hdr.ipv4.totalLen + 8;
+        hdr.ipv4_option.optionLength = hdr.ipv4_option.optionLength + 8;
+    }
+
+    table int_table {
+        actions = {
+            add_int_header;
+            NoAction;
+        }
+        default_action = NoAction();
+    }
+
+    apply {
+        if (hdr.int_count.isValid()){
+            int_table.apply();
+        }
+    }
 }
 
 /*************************************************************************

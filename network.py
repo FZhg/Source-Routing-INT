@@ -11,7 +11,7 @@ net.addP4Switch('s1', cli_input='s1-commands.txt')
 net.addP4Switch('s2', cli_input='s2-commands.txt')
 net.addP4Switch('s3', cli_input='s3-commands.txt')
 net.addP4Switch('s4', cli_input='s4-commands.txt')
-net.setP4SourceAll('p4src/source_routing.p4')
+net.setP4SourceAll('p4src/source_routing_int.p4')
 
 net.addHost('h1')
 net.addHost('h2')

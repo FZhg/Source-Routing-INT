@@ -29,6 +29,28 @@ def handle_pkt(pkt):
     sys.stdout.flush()
 
 
+class SwitchTrace(Packet):
+    fields_desc = [ BitField("swid", 0, 13),
+                    BitField("qdepth", 0,13),
+                    BitField("qtime", 0, 32),
+                    BitField("portid",0,6)]
+    def extract_padding(self, p):
+                return "", p
+
+class IPOption_INT(IPOption):
+    name = "INT"
+    option = 31
+    fields_desc = [ _IPOption_HDR,
+                    FieldLenField("length", None, fmt="B",
+                                  length_of="int_headers",
+                                  adjust=lambda pkt,l:l*2+4),
+                    ShortField("count", 0),
+                    PacketListField("int_headers",
+                                   [],
+                                   SwitchTrace,
+                                   count_from=lambda pkt:(pkt.count*1)) ]
+
+
 class SourceRoute(Packet):
    fields_desc = [ BitField("last_header", 0, 1),
                    BitField("swid", 0, 7)]

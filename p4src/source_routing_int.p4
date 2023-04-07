@@ -110,8 +110,40 @@ control MyEgress(inout headers hdr,
                  inout metadata meta,
                  inout standard_metadata_t standard_metadata) {
 
-    apply {}
 
+    action add_int_header(switch_id_t swid){
+
+        //increase int stack counter by one
+        hdr.int_count.num_switches = hdr.int_count.num_switches + 1;
+
+        hdr.int_headers.push_front(1);
+        // This was not needed in older specs. Now by default pushed
+        // invalid elements are
+        hdr.int_headers[0].setValid();
+        hdr.int_headers[0].switch_id = (bit<13>)swid;
+        hdr.int_headers[0].queue_depth = (bit<13>)standard_metadata.deq_qdepth;
+        hdr.int_headers[0].queue_time = (bit<32>)standard_metadata.deq_timedelta;
+        hdr.int_headers[0].output_port = (bit<6>)standard_metadata.egress_port;
+
+        //update ip header length
+        hdr.ipv4.ihl = hdr.ipv4.ihl + 2;
+        hdr.ipv4.totalLen = hdr.ipv4.totalLen + 8;
+        hdr.ipv4_option.optionLength = hdr.ipv4_option.optionLength + 8;
+    }
+
+    table int_table {
+        actions = {
+            add_int_header;
+            NoAction;
+        }
+        default_action = NoAction();
+    }
+
+    apply {
+        if (hdr.int_count.isValid()){
+            int_table.apply();
+        }
+    }
 }
 
 /*************************************************************************

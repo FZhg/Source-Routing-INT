@@ -6,10 +6,11 @@ import random
 import struct
 
 from scapy.all import sendp, send, get_if_list, get_if_hwaddr, bind_layers
-from scapy.all import Packet
+from scapy.all import Packet, IPOption
 from scapy.all import Ether, IP, UDP
 from scapy.fields import *
-import readline
+from scapy.layers.inet import _IPOption_HDR
+
 
 
 def get_if():
@@ -24,6 +25,27 @@ def get_if():
         exit(1)
     return iface
 
+class SwitchTrace(Packet):
+    fields_desc = [ BitField("swid", 0, 13),
+                    BitField("qdepth", 0,13),
+                    BitField("qtime", 0, 32),
+                    BitField("portid",0,6)]
+    def extract_padding(self, p):
+                return "", p
+
+class IPOption_INT(IPOption):
+    name = "INT"
+    option = 31
+    fields_desc = [ _IPOption_HDR,
+                    FieldLenField("length", None, fmt="B",
+                                  length_of="int_headers",
+                                  adjust=lambda pkt,l:l*2+4),
+                    ShortField("count", 0),
+                    PacketListField("int_headers",
+                                   [],
+                                   SwitchTrace,
+                                   count_from=lambda pkt:(pkt.count*1)) ]
+
 
 class SourceRoute(Packet):
    fields_desc = [ BitField("last_header", 0, 1),
@@ -36,8 +58,8 @@ bind_layers(SourceRoute, IP, last_header=1)
 
 def main():
 
-    if len(sys.argv)<2:
-        print('pass 2 arguments: <destination>')
+    if len(sys.argv)<3:
+        print('pass 2 arguments: <destination> "<message>"')
         exit(1)
 
     addr = socket.gethostbyname(sys.argv[1])
@@ -63,7 +85,9 @@ def main():
         if pkt.haslayer(SourceRoute):
             pkt.getlayer(SourceRoute, i).last_header = 1
 
-        pkt = pkt / IP(dst=addr) / UDP(dport=4321, sport=1234)
+        pkt = pkt / IP(
+        dst=addr, options = IPOption_INT(count=0,
+            int_headers=[])) / UDP(dport=4321, sport=1234) /  sys.argv[2]
         pkt.show2()
         sendp(pkt, iface=iface, verbose=False)
 

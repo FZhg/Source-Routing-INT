@@ -4,6 +4,9 @@ Control utility for runtime P4 table manipulation
 RuntimeCmd: Setting default action of ipv4_lpm
 action:              drop
 runtime data:        
+RuntimeCmd: Setting default action of int_table
+action:              add_int_header
+runtime data:        00:03
 RuntimeCmd: Adding entry to lpm match table ipv4_lpm
 match key:           LPM-0a:00:01:01/32
 action:              ipv4_forward

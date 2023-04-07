@@ -33,8 +33,43 @@ parser MyParser(packet_in packet,
 
     state parse_ipv4 {
         packet.extract(hdr.ipv4);
-        transition accept;
+        //Check if ihl is bigger than 5. Packets without ip options set ihl to 5.
+        verify(hdr.ipv4.ihl >= 5, error.IPHeaderWithoutOptions);
+        transition select(hdr.ipv4.ihl) {
+            5             : accept; // Not a INT probe
+            default       : parse_ipv4_option;
+        }
     }
+
+        state parse_ipv4_option {
+        packet.extract(hdr.ipv4_option);
+        transition select(hdr.ipv4_option.option){
+
+            IPV4_OPTION_INT:  parse_int;
+            default: accept;
+
+        }
+     }
+
+    state parse_int {
+        packet.extract(hdr.int_count);
+        meta.parser_metadata.num_headers_remaining = hdr.int_count.num_switches;
+        transition select(meta.parser_metadata.num_headers_remaining){
+            0: accept;
+            default: parse_int_headers;
+        }
+    }
+
+    state parse_int_headers {
+        packet.extract(hdr.int_headers.next);
+        meta.parser_metadata.num_headers_remaining = meta.parser_metadata.num_headers_remaining -1 ;
+        transition select(meta.parser_metadata.num_headers_remaining){
+            0: accept;
+            default: parse_int_headers;
+        }
+    }
+
+
 }
 
 /*************************************************************************
@@ -47,7 +82,10 @@ control MyDeparser(packet_out packet, in headers hdr) {
         //parsed headers have to be added again into the packet.
         packet.emit(hdr.ethernet);
         packet.emit(hdr.source_routes);
-        packet.emit(hdr.ipv4);
+        packet.emit(hdr.ipv4);        
+        packet.emit(hdr.ipv4_option);
+        packet.emit(hdr.int_count);
+        packet.emit(hdr.int_headers);
 
     }
 }
